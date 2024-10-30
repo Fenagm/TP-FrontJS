@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="media/icons/favicon.ico" type="image/x-icon">
+    <title>Tienda Online</title>
+</head>
+<body>
+    <header>
+        <h1>TechieWorld</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos/productos.html">Productos</a></li>
+                <li><a href="contacto/contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="productos">
+            <h2>Productos Destacados</h2>
+            <div class="carousel">
+                <button class="carousel-button prev">&lt;</button>
+                <div class="carousel-container">
+                    <div class="card">
+                        <a href="productos/productosdetalle.html"><img src="media/images/product1.jpg" alt="Producto 1">
+                        <h3>Producto 1</h3></a>
+                        <p>Descripción breve del producto 1.</p>
+                       
+                    </div>
+                    <div class="card">
+                        <a href="productos/productosdetalle.html"><img src="media/images/product2.jpg" alt="Producto 2">
+                        <h3>Producto 2</h3></a>
+                        <p>Descripción breve del producto 2.</p>
+                        
+                    </div>
+                    <div class="card">
+                        <a href="productos/productosdetalle.html"><img src="media/images/product3.jpg" alt="Producto 3">
+                        <h3>Producto 3</h3></a>
+                        <p>Descripción breve del producto 3.</p>
+                        
+                    </div>
+                    <div class="card">
+                        <a href="productos/productosdetalle.html"><img src="media/images/product1.jpg" alt="Producto 4">
+                        <h3>Producto 4</h3></a>
+                        <p>Descripción breve del producto 4.</p>
+                        
+                    </div>
+                    <div class="card">
+                        <a href="productos/productosdetalle.html"><img src="media/images/product2.jpg" alt="Producto 5">
+                        <h3>Producto 5</h3></a>
+                        <p>Descripción breve del producto 5.</p>
+                        
+                    </div>
+                </div>
+                <button class="carousel-button next">&gt;</button>
+            </div>
+        </section>
+
+        <section class="reseñas">
+            <h2>Reseñas de Clientes</h2>
+            <div class="reseñas-container">
+                <div class="reseña">
+                    <div class="reseña-producto">
+                        <img src="media/images/product1.jpg" alt="Producto 1" class="reseña-imagen">
+                        <div class="reseña-info">
+                            <h3>Producto 1</h3>
+                            <h4>Juan Pérez</h4>
+                        </div>
+                    </div>
+                    <p>"Excelente producto, llegó a tiempo y en perfectas condiciones."</p>
+                </div>
+                <div class="reseña">
+                    <div class="reseña-producto">
+                        <img src="media/images/product2.jpg" alt="Producto 2" class="reseña-imagen">
+                        <div class="reseña-info">
+                            <h3>Producto 2</h3>
+                            <h4>María Gómez</h4>
+                        </div>
+                    </div>
+                    <p>"Muy satisfecho con la compra, definitivamente volveré a comprar."</p>
+                </div>
+                <div class="reseña">
+                    <div class="reseña-producto">
+                        <img src="media/images/product1.jpg" alt="Producto 1" class="reseña-imagen">
+                        <div class="reseña-info">
+                            <h3>Producto 1</h3>
+                            <h4>Pedro López</h4>
+                        </div>
+                    </div>
+                    <p>"La atención al cliente fue increíble, me ayudaron con todas mis dudas."</p>
+                </div>
+                
+            </div>
+        </section>
+
+    </main>
+
+ <footer>
+        <p>&copy; 2024 TechieWorld. Todos los derechos reservados.</p>
+        <div class="redes-sociales">
+            <a href="https://www.facebook.com" target="_blank"><img src="media/icons/facebook.png" alt="Facebook"></a>
+            <a href="https://www.twitter.com" target="_blank"><img src="media/icons/twitter.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="media/icons/instagram.png" alt="Instagram"></a>
+            <a href="https://www.linkedin.com" target="_blank"><img src="media/icons/linkedin.png" alt="LinkedIn"></a>
+        </div>
+    </footer>
+
+
+    <script>
+        const carouselContainer = document.querySelector('.carousel-container');
+        const cards = document.querySelectorAll('.card');
+        const totalCards = cards.length;
+        let currentIndex = 0;
+
+        document.querySelector('.next').addEventListener('click', () => {
+            if (currentIndex < totalCards - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Volver al inicio
+            }
+            updateCarousel();
+        });
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = totalCards - 1; // Ir al final
+            }
+            updateCarousel();
+        });
+
+        function updateCarousel() {
+            const offset = -currentIndex * (100 / totalCards);
+            carouselContainer.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+</html>

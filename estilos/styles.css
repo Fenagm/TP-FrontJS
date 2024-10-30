@@ -1,0 +1,326 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 1rem;
+    
+}
+
+/* Estilos de navegación */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem; /* Espaciado interno para un área de clic más grande */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+}
+
+/* Efecto hover */
+nav ul li a:hover {
+    background-color: #f8f3f3; 
+    color: rgb(0, 0, 0); 
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.productos {
+    padding: 2rem;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden; /* Ocultar el desbordamiento */
+    width: 100%;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease; /* Transición suave */
+ padding: 2rem;
+gap: 1.5rem; /* Espacio entre reseñas */
+}
+
+.card {
+    min-width: 20%; /* Cada tarjeta ocupa el 20% del carrusel */
+    box-sizing: border-box; /* Incluir padding y border en el ancho total */
+border: 1px solid #ddd;
+ padding: 1rem;
+ box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; /* Bordes redondeados */
+
+}
+
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 10; /* Por encima de los productos */
+}
+
+.prev {
+    left: 10px; /* A la izquierda */
+}
+
+.next {
+    right: 10px; /* A la derecha */
+}
+
+.card img {
+    max-width: 90%;
+    height: auto;
+   
+}
+
+/* Carrusel en pantallas pequeñas */
+@media (max-width: 768px) {
+    .card {
+        min-width: 80%; /* Cada tarjeta ocupa el 100% en pantallas pequeñas (1 tarjeta visible) */
+    }
+}
+
+.contacto {
+    display: block; /* Cambia flex a block para distribución vertical */
+    padding: 2rem;
+}
+
+.contacto form,
+.contacto iframe {
+    margin-bottom: 2rem; /* Espacio entre el formulario y el iframe */
+    width: 80%; /* Asegura que ocupen el ancho completo */
+}
+
+.contacto iframe {
+    height: 450px;
+}
+
+@media (max-width: 768px) {
+    .contacto {
+        flex-direction: column;
+    }
+
+    .contacto form,
+    .contacto iframe {
+        max-width: 80%; /* En pantallas pequeñas, que usen todo el ancho */
+    }
+}
+
+
+/* Estilos generales de reseñas */
+.reseñas {
+    padding: 2rem;
+    background-color: #f9f9f9;
+}
+
+.reseñas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Múltiples columnas en pantallas grandes */
+    gap: 1.5rem;
+}
+
+/* Ajuste de estilo de cada reseña */
+.reseña {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox para el producto y la información de la reseña */
+.reseña-producto {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+/* Imagen de la reseña */
+.reseña-imagen {
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    margin-right: 1rem;
+}
+
+.reseña-info h3,
+.reseña-info h4 {
+    margin: 0;
+}
+
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .reseñas-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .reseña {
+        padding: 1.5rem;
+    }
+
+    .reseña-imagen {
+        width: 40px; /* Reduce el tamaño de la imagen en móviles */
+        height: 40px;
+    }
+}
+
+
+
+.form-contacto {
+    background-color: #fff; /* Fondo blanco */
+    padding: 2rem;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+}
+
+.form-contacto label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold; /* Negrita para etiquetas */
+}
+
+.form-contacto input,
+.form-contacto textarea {
+    width: 100%; /* Ancho completo */
+    padding: 0.8rem; /* Espacio interno */
+    margin-bottom: 1rem; /* Espacio entre campos */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: border 0.3s; /* Transición suave en el borde */
+}
+
+.form-contacto input:focus,
+.form-contacto textarea:focus {
+    border: 1px solid #007BFF; /* Borde azul al enfocar */
+    outline: none; /* Sin contorno */
+}
+
+.form-contacto button {
+    background-color: #007BFF; /* Color de fondo del botón */
+    color: white; /* Texto blanco */
+    padding: 0.8rem; /* Espacio interno */
+    border: none; /* Sin borde */
+    border-radius: 4px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    font-size: 1rem; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave en el fondo */
+}
+
+.form-contacto button:hover {
+    background-color: #0056b3; /* Color al pasar el cursor */
+}
+
+ footer {
+            background-color: #333; /* Color de fondo del footer */
+            color: white; /* Color del texto */
+            text-align: center; /* Centrar el texto */
+            padding: 2rem; /* Espacio interno */    
+            position: relative; /* Para el posicionamiento de los íconos */
+        }
+
+        .redes-sociales {
+            margin-top: 1rem; /* Espacio encima de los íconos */
+        }
+
+        .redes-sociales a {
+            margin: 0 10px; /* Espacio entre íconos */
+        }
+
+        .redes-sociales img {
+            width: 24px; /* Ajusta el tamaño de los íconos */
+            height: 24px;
+        }
+
+/* Estilos de la grilla de productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Múltiples columnas, mínimo de 250px por columna */
+    gap: 2rem; /* Espacio entre productos */
+    padding: 2rem;
+}
+
+.producto-grid {
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para los productos */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+.producto-grid:hover {
+    transform: scale(1.05); /* Efecto hover de agrandar */
+}
+
+.producto-grid img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.producto-grid h2 {
+    font-size: 1.2rem;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.producto-grid .precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007BFF;
+    margin: 1rem 0;
+}
+
+.producto-grid button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.producto-grid button:hover {
+    background-color: #0056b3;
+}
+
+/* Ajustes responsivos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .productos-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Menos columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .productos-grid {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+
+    .producto-grid {
+        padding: 1rem;
+    }
+
+    .producto-grid img {
+        max-width: 100%; /* Asegura que las imágenes se ajusten al ancho */
+        height: auto;
+    }
+}
