@@ -2,6 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
+    background-image: url(/media/images/background.jpg) ;
 }
 
 header {
@@ -25,81 +26,127 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
-    padding: 0.5rem 1rem; /* Espaciado interno para un área de clic más grande */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Efecto hover */
 nav ul li a:hover {
-    background-color: #f8f3f3; 
-    color: rgb(0, 0, 0); 
-    border-radius: 4px; /* Bordes redondeados */
+    background-color: #f8f3f3;
+    color: rgb(0, 0, 0);
+    border-radius: 4px;
+}
+
+/* Ajuste en pantallas pequeñas */
+@media (max-width: 600px) {
+    nav ul {
+        display: flex;
+        flex-direction: column; /* Coloca los elementos en columna */
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    nav ul li {
+        margin-right: 0; /* Elimina el margen derecho */
+        margin-bottom: 1rem; /* Añade margen inferior entre los elementos */
+    }
 }
 
 .productos {
     padding: 2rem;
 }
 
-.carousel {
+.carousel-wrapper {
     position: relative;
-    overflow: hidden; /* Ocultar el desbordamiento */
+    width: 90%;
+    margin: 0 auto; /* Centra el contenedor en la página */
+}
+
+.carousel {
+    overflow: hidden;
     width: 100%;
 }
 
 .carousel-container {
     display: flex;
-    transition: transform 0.5s ease; /* Transición suave */
- padding: 2rem;
-gap: 1.5rem; /* Espacio entre reseñas */
+    transition: transform 0.5s ease;
+    padding: 2rem;
+    gap: 1.5rem; 
 }
 
 .card {
-    min-width: 20%; /* Cada tarjeta ocupa el 20% del carrusel */
-    box-sizing: border-box; /* Incluir padding y border en el ancho total */
-border: 1px solid #ddd;
- padding: 1rem;
- box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 8px; /* Bordes redondeados */
-
-}
-
-
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.7);
-    border: none;
+    min-width: 20%; /* Ancho mínimo por defecto */
+    box-sizing: border-box; 
+    border: 1px solid #ddd;
     padding: 1rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-    z-index: 10; /* Por encima de los productos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; 
+    background-color: white;
 }
-
-.prev {
-    left: 10px; /* A la izquierda */
-}
-
-.next {
-    right: 10px; /* A la derecha */
-}
-
 .card img {
     max-width: 90%;
     height: auto;
    
 }
 
-/* Carrusel en pantallas pequeñas */
-@media (max-width: 768px) {
+/* Ajuste en pantallas pequeñas */
+@media (max-width: 900px) {
     .card {
-        min-width: 80%; /* Cada tarjeta ocupa el 100% en pantallas pequeñas (1 tarjeta visible) */
+        min-width: 30%; /* Tarjetas ocupan el 30% en pantallas medianas */
     }
 }
 
+@media (max-width: 600px) {
+    .card {
+        min-width: 45%; /* Tarjetas ocupan el 45% en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 400px) {
+    .card {
+        min-width: 80%; /* Tarjetas ocupan el 80% en pantallas muy pequeñas */
+    }
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid #333;
+    padding: 1rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 100;
+}
+
+.prev {
+    left: -2rem; /* Botón a la izquierda */
+}
+
+.next {
+    right: -2rem; /* Botón a la derecha */
+}
+
+/* Ajuste en pantallas pequeñas */
+@media (max-width: 600px) {
+    .carousel-button {
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+    .prev {
+        left: -1rem;
+    }
+    .next {
+        right: -1rem;
+    }
+}
+
+
 .contacto {
-    display: block; /* Cambia flex a block para distribución vertical */
+    display: flex; /* Mantiene la distribución flex */
     padding: 2rem;
+    align-items: center; /* Alinea verticalmente los elementos */
+    flex-direction: column; /* Cambia a columna para apilar verticalmente */
 }
 
 .contacto form,
@@ -109,17 +156,25 @@ border: 1px solid #ddd;
 }
 
 .contacto iframe {
-    height: 450px;
+    height: 450px; /* Altura del iframe */
 }
 
-@media (max-width: 768px) {
-    .contacto {
-        flex-direction: column;
-    }
+/* Ajustes en pantallas pequeñas */
+@media (max-width: 600px) {
+
 
     .contacto form,
     .contacto iframe {
-        max-width: 80%; /* En pantallas pequeñas, que usen todo el ancho */
+        width: 90%; /* Ocupa todo el ancho en pantallas pequeñas */
+    }
+
+    .contacto iframe {
+        height: 300px; /* Ajustar la altura del iframe para pantallas más pequeñas */
+    }
+
+
+    nav ul{
+        flex-flow: row  ;
     }
 }
 
@@ -149,6 +204,7 @@ border: 1px solid #ddd;
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
+    
 }
 
 /* Imagen de la reseña */
