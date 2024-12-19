@@ -253,7 +253,7 @@ async function fetchAndRenderProducts() {
         const productElement = document.createElement('div');
         productElement.classList.add('producto-grid');
         productElement.innerHTML = `
-          <a href="#">
+          <a href="/productos/productosdetalle.html?id=${product.id}">
             <img src="${product.image}" alt="${product.title}">
             <h2>${product.title}</h2>
           </a>
